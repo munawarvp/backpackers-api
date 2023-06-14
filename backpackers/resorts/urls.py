@@ -6,10 +6,11 @@ from .views import (LocationList, ResortList, CreateResort,
                     StaffAdventureList, GetAdventureDetail, SearchAdventure, AdminSearchAdventure, HomeListAdventures,
                     StaffDestinationList,GetDestinationDeatail,SearchDestinations, AdminSearchDestination, HomeListDestinations, BlockDestination,
                     SearchResorts, AdminSearchResort, BlockAdventure, AdminFilterResorts, AdminFilterActivity, AdminFilterDestination,
-                    UserResortList, UserAdventureList, UserDestinationList, SingleResortView,SimilarStays, DashboardCount)
+                    UserResortList, UserAdventureList, UserDestinationList, SingleResortView,SimilarStays, DashboardCount, StaffDashboardResort)
 
 
 urlpatterns = [
+    
     path('locations/', LocationList.as_view()),
 
     path('resortslist/', ResortList.as_view()),
@@ -59,7 +60,8 @@ urlpatterns = [
     path('singleresortpage/<int:resort_id>', SingleResortView.as_view()),
     path('similarstays/<int:resort_id>', SimilarStays.as_view()),
 
-
     path('admindasboardcount/', DashboardCount.as_view()),
+
+    path('staff-dashboard-resort/<int:user_id>', StaffDashboardResort.as_view()),
 
 ]

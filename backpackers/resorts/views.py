@@ -320,6 +320,13 @@ class AdminSearchAdventure(ListCreateAPIView):
 
 
 # *** destination views ***
+class StaffDashboardResort(APIView):
+    def get(self, request, user_id):
+        queryset = Resorts.objects.filter(owner=user_id)[:3]
+        serializer = ResortSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+
 class StaffDestinationList(APIView):
     def post(self, request):
         serializer = PostDestinationSerializer(data=request.data)

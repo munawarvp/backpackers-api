@@ -32,6 +32,8 @@ class CheckResortAvailability(APIView):
         availability_case2 = ResortBooking.objects.filter(booked_resort=checking_resort, check_in__lte=checkout_obj, check_out__gte=checkout_obj).exists()
         availability_case3 = ResortBooking.objects.filter(booked_resort=checking_resort, check_in__gte=checkin_obj, check_out__lte=checkout_obj).exists()
 
+        print(availability_case1, availability_case2, availability_case3)
+
         if availability_case2 or availability_case1 or availability_case3:
             return Response({'msg': 504})
         else:
