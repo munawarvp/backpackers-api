@@ -208,6 +208,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.backpackers.cloud"
 ]
 
+CORS_ALLOW_ALL_HEADERS = True
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
