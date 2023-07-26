@@ -32,7 +32,6 @@ class ResortList(ListCreateAPIView):
 class CreateResort(APIView):
     def post(self, request, format=None):
         serializer = PostResortSerializer(data=request.data)
-        print(request.data)
         is_valid = serializer.is_valid()
         print(serializer.errors)
 
